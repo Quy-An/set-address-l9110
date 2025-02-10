@@ -13,17 +13,18 @@ for (let i = 0; i <= 69; i++) {
         basic.pause(1000)
     }
 }
-driver.setAddress(67)
+let address = 66
+driver.setAddress(address)
 pins.i2cWriteNumber(
-67,
+address,
 1,
 NumberFormat.Int8LE,
 false
 )
-data = pins.i2cReadNumber(67, NumberFormat.Int8LE, false)
+data = pins.i2cReadNumber(address, NumberFormat.Int8LE, false)
 if (data == 1) {
     lcd.clearScreen()
-    lcd.displayText(convertToText(67), 1, 1)
+    lcd.displayText(convertToText(address), 1, 1)
     basic.pause(1000)
 }
 basic.forever(function () {
